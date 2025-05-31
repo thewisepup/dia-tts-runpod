@@ -7,10 +7,11 @@ wheels/
 *.egg-info
 
 # Virtual environments
-.venv
-
+.venv/
+.env
 .gradio
-
+test_input.json
+venv/
 **/*.pth
 **/*.mp3
 !example_prompt.mp3

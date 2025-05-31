@@ -1,0 +1,10 @@
+# Ignore everything
+*
+
+# Allow dia directory
+!dia/
+!dia/**
+
+# Allow rp_handler.py
+!rp_handler.py 
+!requirements.txt
