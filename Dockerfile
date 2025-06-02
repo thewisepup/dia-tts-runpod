@@ -1,14 +1,18 @@
-FROM python:3.10-slim
+FROM ghcr.io/astral-sh/uv:python3.10-bookworm-slim
 
-WORKDIR /
-# Copy requirements first to leverage Docker cache
-COPY requirements.txt /
+WORKDIR /app
+
+# Copy dependency files first
+COPY pyproject.toml uv.lock ./
+COPY LICENSE README.md ./
+
 # Install dependencies
-RUN pip install --no-cache-dir -r requirements.txt
+RUN uv sync --frozen
 
-# Copy your handler file
-COPY rp_handler.py /
-COPY dia/ /dia/
+# Copy source code
+COPY rp_handler.py ./
+COPY dia/ ./dia/
 
-# Start the container
+# Copy documentation files last since they change less frequently
+
 CMD ["python3", "-u", "rp_handler.py"] 

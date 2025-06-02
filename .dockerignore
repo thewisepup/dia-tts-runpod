@@ -8,3 +8,8 @@
 # Allow rp_handler.py
 !rp_handler.py 
 !requirements.txt
+
+!pyproject.toml
+!uv.lock
+!LICENSE
+!README.md
